@@ -16,12 +16,13 @@ class Reviewer
 		Reviewer();
 		review_state getState(void);
 		review_state nextState(void);
-		void draw();
-		void shutdown();
+
+		void initCurrentCard(void);
+		void draw(void);
+		void shutdown(void);
+		Card current_card;
 	private:
 		review_state qa_state;
-		Card current_card;
-		
 };
 
 #endif

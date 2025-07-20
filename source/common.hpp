@@ -20,8 +20,11 @@ const u32 blue  = C2D_Color32(0x00, 0x00, 0xFF, 0xFF);
 
 const u32 background_colour = C2D_Color32(0x68, 0xB0, 0xD8, 0xFF);
 
+extern C2D_Font questionFont;
+extern C2D_Font answerFont;
+
 void fontTextInit(const char* raw_text,
-		const char* fontPath,
+		C2D_Font* pFont,
 		C2D_Text* pText,
 		C2D_TextBuf* pTextBuf
 		);
@@ -31,5 +34,7 @@ void plainTextInit(const char* raw_text,
 		);
 
 void drawCentredText(C2D_Text* pText, float x, float y, float scale);
+
+void initFonts(const char* questionFontPath, const char* answerFontPath);
 
 #endif

@@ -7,17 +7,22 @@ const float questionY = float(TOP_SCREEN_WIDTH) / 4;
 const float answerX = float(TOP_SCREEN_WIDTH) / 2;
 const float answerY = TOP_SCREEN_HEIGHT * 0.75;
 
-Card::Card(const char* qFont, const char* aRaw, const char* frontFont, const char* aFont)
+Card::Card()
 {
-	questionRaw = qFont;
+	return;
+}
+
+void Card::initEntries(const char* qRaw, const char* aRaw)
+{	
+	questionRaw = qRaw;
 	answerRaw =  aRaw;
-	questionFont = qFont;
-	answerFont = aFont;
 }
 
 void Card::initFront()
 {
-	fontTextInit(questionRaw, questionFont, &g_frontText, &g_frontTextBuffer);
+	C2D_TextBufClear(g_frontTextBuffer);
+	C2D_TextFontParse(&g_frontText, questionFont, g_frontTextBuffer, questionRaw);
+	C2D_TextOptimize(&g_frontText);
 }
 
 void Card::showFront()
@@ -27,8 +32,8 @@ void Card::showFront()
 
 void Card::initBack()
 {
-	fontTextInit(questionRaw, questionFont, &g_frontText, &g_frontTextBuffer);
-	fontTextInit(answerRaw, answerFont, &g_backText, &g_backTextBuffer);
+	fontTextInit(questionRaw, &questionFont, &g_frontText, &g_frontTextBuffer);
+	fontTextInit(answerRaw, &answerFont, &g_backText, &g_backTextBuffer);
 }
 
 void Card::showBack()

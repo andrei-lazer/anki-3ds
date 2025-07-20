@@ -1,9 +1,10 @@
 #include "Reviewer.hpp"
+#include <iostream>
 
-Reviewer::Reviewer(void) : current_card("感觉", "feeling", "romfs:/chinese_font.bcfnt",  "romfs:/arial.bcfnt")
+Reviewer::Reviewer(void)
 {
 	qa_state = FRONT;
-	current_card = Card("感觉", "feeling", "romfs:/chinese_font.bcfnt",  "romfs:/arial.bcfnt");
+	current_card.initEntries("感觉", "feeling");
 }
 
 review_state Reviewer::getState(void)
@@ -27,6 +28,12 @@ review_state Reviewer::nextState(void)
 void Reviewer::shutdown(void)
 {
 	return;
+}
+
+void Reviewer::initCurrentCard(void)
+{
+	current_card.initFront();
+	current_card.initBack();
 }
 
 void Reviewer::draw(void)
