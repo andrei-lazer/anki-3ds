@@ -4,13 +4,20 @@
 #include <citro2d.h>
 
 #include "common.hpp"
-#include "Reviewer.hpp"
+#include "OldApp.hpp"
 
-int main(int argc, char* argv[])
+/*
+TODO
+- import cards from Anki
+- add a queue of cards
+- Add review buttons on the bottom screen
+*/
+
+int _main(int argc, char* argv[])
 {
 
 	// Initializing
-	Reviewer reviewer;
+	OldApp reviewer;
 	g_frontTextBuffer = C2D_TextBufNew(4096);
 	g_backTextBuffer = C2D_TextBufNew(4096);
 	u32 kDownPrev = -1;
@@ -70,4 +77,19 @@ int main(int argc, char* argv[])
 	C3D_Fini();
 	gfxExit();
 	return 0;
+}
+
+int main()
+{
+	Renderer renderer;
+
+	while (aptMainLoop())
+	{
+		hidScanInput();
+		u32 kDown = hidKeysHeld();
+		if (kDown & KEY_START)
+		{
+			break;
+		}
+	}
 }
