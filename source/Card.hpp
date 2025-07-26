@@ -6,14 +6,14 @@
 class Card
 {
 	public:
-		Card();
-		void initEntries(const char* qRaw, const char* aRaw);
-		void initFront();
-		void showFront();
-		void initBack();
-		void showBack();
+		Card(const char* qRaw, const char* aRaw);
+		// void initEntries(const char* qRaw, const char* aRaw);
+		// void initFront();
+		// void showFront();
+		// void initBack();
+		// void showBack();
 	// private:
-		const char* questionRaw;
+		const char* questionText;
 		const char* answerRaw;
 };
 
