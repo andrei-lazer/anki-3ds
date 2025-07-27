@@ -10,13 +10,15 @@
 
 /*
 TODO
-- import cards from Anki
-- add a queue of cards
-- Add review buttons on the bottom screen
+- import cards from anki
+- figure out how to pass function pointers
+	to the button class so that buttons make
+	the card move forwards.
+
 */
 
 int main()
 {
 	Anki anki;
-	anki.loop();
+	anki.run();
 }

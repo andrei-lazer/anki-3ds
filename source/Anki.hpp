@@ -7,10 +7,10 @@
 #include "citro2d.h"
 
 #include "Renderer.hpp"
+#include "Button.hpp"
 
 class Anki
 {
-private:
 	enum inputActions
 	{
 		NO_ACTION = 0,
@@ -18,19 +18,21 @@ private:
 		NEXT,
 		UNDO
 	};
+
+public:
+	Anki();
+	void init();
+	void run();
+	~Anki();
+private:
+	inputActions manageInputs();
+	void nextCard();
+private:
 	Renderer renderer;
 	bool showAnswer;
 	Card* currentCard;
 	std::vector<Card> deck;
 	u32 cardIndex;
-private:
-	inputActions manageInputs();
-	void nextCard();
-public:
-	Anki();
-	void init();
-	void loop();
-	~Anki();
 };
 
 
